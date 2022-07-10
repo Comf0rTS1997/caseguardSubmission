@@ -1,0 +1,107 @@
+﻿<Window x:Class="CaseGuardAssignment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaseGuardAssignment"
+        mc:Ignorable="d"
+        Title="Rectangle" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1.3*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Column="0"
+              Grid.Row="0" 
+              Grid.RowSpan="2">
+            <MenuItem Header="Open"
+                      Click="Open_MenuItem_Click"/>
+            <MenuItem x:Name="saveMenu" Header="Save"
+                      Click="Save_MenuItem_Click"
+                      IsEnabled="False"/>
+        </Menu>
+        <Canvas x:Name="imgCanvas" 
+                Grid.Column="0"
+                Grid.Row="1"
+                AllowDrop="True"
+                MouseLeftButtonDown="imgCanvas_MouseLeftButtonDown"
+                DragOver="imgCanvas_DragOver" Grid.ColumnSpan="2" Margin="0,0,0,52" Grid.RowSpan="2">
+        </Canvas>
+        <Grid Grid.Column="0"
+              Grid.Row="2"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="PenButton" 
+                    Grid.Column="0" 
+                    Opacity="0.5"
+                    Click="Pen_Click">Pen</Button>
+            <Button x:Name="EraserButton" 
+                    Grid.Column="1" 
+                    Opacity="1.0"
+                    Click="Eraser_Click">Eraser</Button>
+            <Button x:Name="ModifyButton" 
+                    Grid.Column="2" 
+                    Opacity="1.0"
+                    Click="Modify_Click">Modify</Button>
+            <Grid Grid.Column="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Padding="0"
+                       HorizontalAlignment="Center">R</Label>
+                <Label Grid.Column="1"
+                       Grid.Row="1"
+                       Padding="0"
+                       HorizontalAlignment="Center">G</Label>
+                <Label Grid.Column="1"
+                       Grid.Row="2"
+                       Padding="0"
+                       HorizontalAlignment="Center">B</Label>
+                <Rectangle x:Name="colorMonitor" Grid.Column="0"
+                           Grid.Row="0"
+                           Grid.RowSpan="3" Margin="0,0,10,0"/>
+                <Slider x:Name="redSlider" 
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Minimum="0"
+                        Maximum="255"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        ValueChanged="redSlider_ValueChanged"/>
+                <Slider x:Name="greenSlider" 
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        Minimum="0"
+                        Maximum="255"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        ValueChanged="greenSlider_ValueChanged"/>
+                <Slider x:Name="blueSlider" 
+                        Grid.Column="2"
+                        Grid.Row="2"
+                        Minimum="0"
+                        Maximum="255"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        ValueChanged="blueSlider_ValueChanged"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+
+</Window>
